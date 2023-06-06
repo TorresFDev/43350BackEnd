@@ -12,7 +12,7 @@ class ProductManager{
     }
 
     writeProducts= async (product) => {
-        await fs.writeFile(this.path, JSON.stringify(product))
+        await fs.writeFile(this.path, JSON.stringify(product, null, "\t"))
     }
 
     exist = async(id) =>{
