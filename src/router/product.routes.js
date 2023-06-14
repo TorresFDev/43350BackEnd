@@ -5,11 +5,6 @@ import ProductManager from "../controllers/ProductManager.js";
 const productRouter = Router()
 const product = new ProductManager();
 
-productRouter.get("/home", (req,res)=>{
-    products = product.getProducts()
-    res.render('home',{products})
- })
-
 
 productRouter.get("/", async (req,res)=>{
     res.send(await product.getProducts())
