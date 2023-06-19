@@ -1,0 +1,18 @@
+<h1>Products in real time</h1>
+
+    <hr/>
+
+    {{#each products}}
+    <div>
+        <li>Product:{{this.title}}</li>
+        <li>Description:{{this.description}}</li>
+        <li>Stock:{{this.stock}}</li>
+        <li>Category:{{this.category}}</li>
+        <br>
+
+    </div>
+    {{/each}}
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/src/views/webSocket.js"></script>
