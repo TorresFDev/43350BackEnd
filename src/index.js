@@ -4,19 +4,23 @@ import productRouter from "./router/product.routes.js";
 import CartRouter from "./router/carts.routes.js";
 import ProductManager from "./controllers/ProductManager.js";
 import {Server} from 'socket.io'
+import path from "path";
+import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 const port = 8080;
 const product = new ProductManager();
 
-app.engine('handlebars', handlebars.engine())
-app.set('views','./src/views')
-app.set('view engine', 'handlebars')
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, "public")));
 
-
+app.engine('handlebars', handlebars.engine())
+app.set('views','./src/views')
+app.set('view engine', 'handlebars')
 
 app.use("/api/products", productRouter)
 app.use("/api/cart", CartRouter)
