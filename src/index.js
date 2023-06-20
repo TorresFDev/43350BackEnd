@@ -21,8 +21,8 @@ app.engine("handlebars", handlebars.engine());
 app.set("views", "./src/views");
 app.set("view engine", "handlebars");
 
-/* app.use("/api/products", productRouter)
-app.use("/api/cart", CartRouter) */
+ app.use("/api/products", productRouter)
+app.use("/api/cart", CartRouter)
 
 app.get("/home", async (req, res) => {
   let allproducts = await product.getProducts();
